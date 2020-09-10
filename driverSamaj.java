@@ -1,5 +1,5 @@
  /*****************
-Proyecto Semenstral
+Proyecto Semestral
 Autor: Alejandro Gómez 20347, Marco Jurado, Paola De Leon, Andres Osorio, Alejandra Guzman 20262
 Fecha: 01/09/2020
 Ultima modificacion: 8/09/2020
