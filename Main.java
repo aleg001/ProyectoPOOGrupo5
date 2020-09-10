@@ -3,7 +3,7 @@
 Proyecto Semestral
 Autor: Alejandro Gómez 20347, Marco Jurado 20308, Paola De Leon, Andres Osorio, Alejandra Guzman 20262
 Fecha: 01/09/2020
-Ultima modificacion: 1/09/2020
+Ultima modificacion: 8/09/2020
 					
 Driver program que desarrolla el simulador de 
 Samaj-20
