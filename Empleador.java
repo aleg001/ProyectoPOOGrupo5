@@ -1,8 +1,8 @@
 /*****************
-Proyecto Semenstral
+Proyecto Semestral
 Autor: Alejandro Gómez 20347, Marco Jurado 20308, Paola De Leon 20361, Andres Osorio 20821, Alejandra Guzman 20262
 Fecha: 01/09/2020
-Ultima modificacion: 8/09/2020
+Ultima modificacion: 1/09/2020
 					
 Clase que simulará un empleado en el proyecto semestral:
 Samaj-20

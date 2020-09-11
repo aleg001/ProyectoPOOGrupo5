@@ -9,13 +9,35 @@ Samaj-20
 *****************/
 
 class TrabajadorInformal {
-
-  //Atributos
+public class Informal{
+  //Variables de instancia
   private int CodigoID;
   private String Nombre;
   private String Apellido;
   private String AreaConocimiento;
   private int Telefono;
+
+  //Constructor
+  public TrabajadorInformal(int initCodigoID, string initNombre, string initApellido, string initAreaConocimiento, int initTelefono ){
+
+    codigoID= initCodigoId;
+    Nombre = initNombre;
+    Apellido = initApelllido;
+    AreaConocimiento = initAreaconocimiento;
+    Telefono = initTelefono;
+
+
+  }
+
+  //toString metodo que regresara la informacion de la cuenta
+  public String toString(){
+    String result = "";
+    resultado = "\n Codigo ID:" + codigoID + "\n Nombre: " + Nombre + "\n Apellido: " + Apellido + "\n Areadeconocimiento" + AreaConocimiento + "\n Telefono:" + Telefono;
+    return resultado;
+    
+  }
+
+}
 
   //Metodos
   

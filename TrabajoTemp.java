@@ -2,7 +2,7 @@
 Proyecto Semestral
 Autor: Alejandro Gómez 20347, Marco Jurado 20308, Paola De Leon 20361, Andres Osorio, Alejandra Guzman 20262
 Fecha: 01/09/2020
-Ultima modificacion: 8/09/2020
+Ultima modificacion: 9/09/2020
 					
 Clase que simulará un trabjo temporal en el proyecto semestral:
 Samaj-20
@@ -107,5 +107,21 @@ class TrabajoTemp {
 
     return mensaje;
   }
+  
+  public void SubirPerfil(TrabajadorFormal TF){
+  //Tipo Función
+  Documentos.obtenerPerfil(TF);
+  //Se podría probar también ----> Documentos.obtenerPerfil(this.TrabajadorFormal); para obviar el argumento TrabajadorFormal TF.
+}
+
+  public void ModificarPerfil(int seleccion, int cambioN){
+  
+}
+
+  public void ModificarPerfil(int seleccion, String cambioS){
+
+}
+}
+
     
 }
