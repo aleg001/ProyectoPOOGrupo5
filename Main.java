@@ -1,9 +1,10 @@
 
-  /*****************
+
+/*****************
 Proyecto Semestral
 Autor: Alejandro Gómez 20347, Marco Jurado 20308, Paola De Leon, Andres Osorio, Alejandra Guzman 20262
 Fecha: 01/09/2020
-Ultima modificacion: 8/09/2020
+Ultima modificacion: 11/09/2020
 					
 Driver program que desarrolla el simulador de 
 Samaj-20
@@ -11,73 +12,308 @@ Samaj-20
 
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Random;
+import java.lang.Integer;
+import java.util.ArrayList;
+import java.awt.Desktop; //Manejo de URL
+import java.net.URI; //Manejo de URL
 
-//Main driver program menu principa;
+
+//Main driver para el proyecto Semaj-2020
 public class Main {
   public static void main(String[] args) {
     
     //Instancias
     Scanner scan = new Scanner(System.in);
+    Random rand = new Random();
+    Documentos docs = new Documentos();
+    TrabajoTemp ttemp = new TrabajoTemp();
 
     //Atributos
     int opcion = 0; 
     int subop = 0; 
     int o_user;
+    int cons = 0;
     int menu;
-    int submenu;
+    int submenu1;
+    boolean salir = false;
     
     //Desplegar opciones del menu
     System.out.println( "Bienvenido a Samaj-20 " );
-    System.out.println( "1. Crear perfil" );
+    System.out.println("Empleo fácil, rápido y seguro");
+    System.out.println( "1. Crear/editar perfil" );
     System.out.println( "2. Buscar trabajo" );
     System.out.println( "3. Publicar trabajo" );
     System.out.println( "4. Consejos" );
     System.out.println( "5. Salir" );
     System.out.println( "Ingrese el número de opcion: " );
     menu = scan.nextInt();
-        
-        
+    scan.nextLine();
+    
     //inicializar ciclo para menú
-    while ( menu != 5 ) {
+    while ( salir == false ) {
       if ( menu == 1 ) {
-        System.out.println( "CREACION DE PERFIL");
+        System.out.println( "CREACION/ EDICIÓN DE PERFIL");
         System.out.println( "1. Crear perfil para trabajo bajo contrato" );
         System.out.println( "2. Crear perfil para un trabajo temporal" );
-        submenu = scan.nextInt();
-      if ( submenu ==1 ) {
-        System.out.println( "Trabajo bajo contrato" );
-        System.out.println("Ingrese su nombre");
-        System.out.println("Ingrese su apellido");
-        System.out.println("Ingrese su edad");
-        System.out.println("Ingrese su correo");
-        System.out.println("Ingrese su nivel de educacion");
-        System.out.println("Primaria/Secundaria/Universitaria/Posgrado");
-        System.out.println("Experiencia laboral (SI/NO)");
-        System.out.println("Idiomas");
-        System.out.println("Transporte (SI/NO)");
+        System.out.println("3. Modificar perfil de trabajador bajo contrato");
+        System.out.println("4. Modificar perfil de trabajador temporal");
+        System.out.println("5. Salir a menú principal");
         
-      }
-      if ( submenu ==2 ) {
-        System.out.println( "Trabajo temporal" );
-        System.out.println("Ingrese nombre:");
-        System.out.println("Ingrese nombre apellido:");
-        System.out.println("Area de conocimiento: ");
-        System.out.println("Numero de telefono: ");
-        
-        
+        //Sub menú crear perfil
+        boolean salirSub1 = false;
+        submenu1 = scan.nextInt();
+        scan.nextLine();
+        while(salirSub1 == false) {
+          if (submenu1 == 1){//Crear perfil TrabajadorFormal
+            System.out.println( "----------Trabajo bajo contrato----------" );
+            //Pedirle los datos para la creación de su perfil al usuario.
+            System.out.println("Ingrese su nombre");
+            String TrabajadorFN = scan.nextLine();
+            
+            System.out.println("Ingrese su apellido");
+            String TrabajadorFA = scan.nextLine();
+              
+            System.out.println("Ingrese su edad");
+            int TrabajadorFI = scan.nextInt();
+            scan.nextLine();
 
-      }                     
-      if ( opcion == 2 ) {
+            System.out.println("Ingrese su correo");
+            String CorreoFC = scan.nextLine();
+              
+            System.out.println("Ingrese su nivel de educacion");
+            System.out.println("1. Primaria \n 2. Secundaria \n 3. Universitaria \n 4. 4. Posgrado");
+            int TrabajadorFE = scan.nextInt();
+            scan.nextLine();
+              
+            System.out.println("Experiencia laboral (SI/NO)");
+            String ingreso = scan.nextLine();
+            ingreso = ingreso.toLowerCase();
+            boolean TrabajadorFL;
+            //Verifica el ingreso para asignarle un valor a la variable TrabajadorFL.
+            if (ingreso == "si") { 
+              TrabajadorFL = true;
+            } 
+            else if (ingreso == "no") {
+              TrabajadorFL = false;
+            }
+              
+            System.out.println("Ingrese el idioma de su dominio que desea mostrar en su perfil.");
+            System.out.println("1. Español \n 2.Ingles \n 3.Aleman \n 4.Frances \n 5. Mandarín\n 6. Portugues\n 7. Otros");
+            int idiom = scan.nextInt();
+            scan.nextLine();
+              
+            System.out.println("Transporte (SI/NO)");
+            String ingresoT = scan.nextLine();
+            ingresoT = ingresoT.toLowerCase();
+            boolean TrabajadorFT;
+            //Verifica el ingreso para asignarle un valor a la variable TrabajadorFT.
+            if (ingresoT == "si") {
+              TrabajadorFT = true;
+            } 
+            else if (ingresoT == "no") {
+              TrabajadorFT = false;
+            }
+            System.out.println("Ingrese su numero de telefono: ");
+            int TrabajadorINT = scan.nextInt();
+            scan.nextLine();
+
+            System.out.println("Cuenta con herramientas de Homeoffice? (SI/NO)");
+            String ingresoHO = scan.nextLine();
+            ingresoHO = ingresoHO.toLowerCase();
+            boolean TrabajadorHO;
+            //Verifica el ingreso para asignarle un valor a la variable TrabajadorHO.
+            if (ingresoHO.equals("si")) { 
+              TrabajadorHO = true;
+            } 
+            }
+            else if (ingresoHO.equals("no")) {
+              TrabajadorHO = false;
+            }
+            // int cod = Documentos.generarCod();
+                       
+            //Construir TrabajadorF y subir su perfil a la base de datos.
+            TrabajadorFormal entacuchado = new TrabajadorFormal(TrabajadorFN, TrabajadorFA, TrabajadorFI, TrabajadorIN, CorreoFC, TrabajadorFE, idiom, TrabajadorFL, TrabajadorFT, TrabajadorHO, cod);
+            }
+            
+            entacuchado.SubirPerfil (entacuchado);// Subiendo perfil...
+
+          }
+
+          else if (submenu1 == 2){
+            //Crear perfil TrabajadorInformal
+            //Se despliega la informacion a solicitar al usuario:
+            System.out.println( "-----Crear Perfil Trabajo temporal-----" );
+            System.out.println("Ingrese nombre:");
+            String TrabajadorIN = scan.nextLine();
+
+            System.out.println("Ingrese apellido:");
+            String TrabajadorIA = scan.nextLine();
+
+            System.out.println("Ingrese su area de conocimiento. Por ejemplo, Jardíneria. \n Ingreselo a continuación:  ");
+            String TrabajadorIC = scan.nextLine();
+
+            System.out.println("Ingrese su numero de telefono: ");
+            int TrabajadorINT = scan.nextInt();
+            scan.nextLine();
+
+            int cod = generarCod(docs);
+
+            //Construir TrabajadorIF y subir perfil a base de datos.
+            TrabajadorInformal don = new TrabajadorInformal (cod, TrabajadorIN, TrabajadorIA, TrabajadorIC, TrabajadorIN);
+            don.SubirPerfil(don); //Subiendo perfil...
+          }
+          else if (submenu1 == 3){
+            System.out.println("");
+          }
+          else if (submenu1 == 4){
+            System.out.println("");
+          }
+          //Salir al menú principal.
+          else if (submenu1 == 5){
+            System.out.println("");
+            salirSub1 =true;
+          }
+          else {
+            //En caso se ingrese un valor erroneo
+            System.out.println("Opción invalida, por favor intente de nuevo.");
+          }
+        
+         
+
+      if (menu == 2 ) {
        System.out.println( "BUSCAR TRABAJO");
-       
-       
-      
+        try{
+        System.out.println( "BUSCAR TRABAJO");
+        System.out.println("A continuación se le presentarán las palabras claves de los trabajos: ");
+        int cont = 0;
+        ArrayList<String> palabrasClave = new ArrayList<String>();
+        for(int i = 0 ; (Documentos.getET()).size() ; i++){
+          for(int h = 0 ; ((Documentos.getET())[i]).getTrabajoInformal().size() ; h++){
+            cont = cont + 1;
+            System.out.println(Integer.toString(cont)+". "+((Documentos.getET())[i]).getTrabajoInformal()[h].getCategoriaTrabajo());
+            palabrasClave.add(((Documentos.getET())[i]).getTrabajoInformal()[h].getCategoriaTrabajo());
+          }
+        }
+
+        System.out.println("Ingrese el número correspondiente al trabajo que quiere aplicar: ");
+
+        int opcion = scan.nextInt();
+        scan.nextLine();
+        String palabraClaveSeleccionada =  palabrasClave.get(opcion);
+
+        for(int i = 0 ; (Documentos.getET()).size() ; i++){
+          for(int h = 0 ; ((Documentos.getET())[i]).getTrabajoInformal().size() ; h++){
+            cont = cont + 1;
+            
+            if(((Documentos.getET())[i]).getTrabajoInformal()[h].getCategoriaTrabajo().equals(palabraClaveSeleccionada)){
+              System.out.println("Los trabajos en lo que esta interesado son los siguientes: ");
+              System.out.println(((Documentos.getET())[i]).getTrabajoInformal()[h].getCategoriaTrabajo().toString());
+            }
+          }
+        }
+
+
+       } catch(Exception e) {
+        System.out.println("Solo se aceptan números.");
+       }
       }
 
-    
+      else if (menu == 3){
+        // Pedir código del empleador
+        boolean existe = false;
+        while ( existe == false ) {
+          System.out.println("Ingrese su código: ");
+          int codigo = scan.input;
+          boolean verif;
+          verif = docs.verificarEx( codigo );
+          if ( verif == true ) {
+            existe = true;
+            // Pedir información al usuario sobre el trabajo temporal
+            System.out.println( "PUBLICAR TRABAJO TEMPORAL");
+            System.out.println( "Ingrese los siguientes datos: " );
+            System.out.println( "- Nombre: " );
+            String Nombre = scan.nextLine();
+            scan.nextLine();
+            System.out.println( "- Contacto: " );
+            int Contacto = scan.nextInt();
+            scan.nextLine();
+            System.out.println( "- Categoria (Ingrese solamente una palabra clave) : " );
+            String Categoria = scan.nextLine();
+            scan.nextLine();
+            System.out.println( "- Descripcion: " );
+            String Descripcion = scan.nextLine();
+            scan.nextLine();
+            System.out.println( "- Sueldo: " );
+            int Sueldo = scan.nextInt();
+            scan.nextLine();
+
+            // Crear una objeto del trabajo temporal
+            TrabajoTemp ttemp = new TrabajoTemp( Nombre, Contacto, Categoria, Descripcion, Sueldo );
+            // Se agregará el trabajo en la proxima entrega
+            // empleador.AddTrabajoTemp( ttemp,  );
+
+            //Salir del while
+            existe = true;
+          }
+          else {
+            System.out.println("\nDebe crear un perfil antes...");
+            
+            System.out.println("Ingrese su nombre: ");
+            String EmpleadorN = scan.nextLine();
+
+            System.out.println("Ingrese su contacto: ");
+            int EmpleadorNum = scan.nextInt();
+            scan.nextLine();
+            int EmpleadorCod = Documentos.generarCod(docs);
+
+            Empleador Senito = new Empleador(EmpleadorN, EmpleadorNum, EmpleadorCod);
+          }
+        }
+
+        
+      }
+
+      else if (menu == 4){
+        while (cons != 5){ 
+          System.out.println("Consejos:");
+          System.out.println("1. Manejo de crisis \n 2.Reestructuracion de negocios \n 3.Linea antisuicidio \n 4.Contacto de ayuda \n 5.Regresar a menu ");
+          Desktop d = new Desktop.getDesktop();
+          cons = scan.nextInt();
+          scan.nextLine();
+          if(cons ==1){
+            //Opcion 1: Manejo de Crisis
+            System.out.println("\n1. Manejo de Crisis");
+            System.out.println("Los siguientes links le serán de mucha ayuda:");
+            d.browse(new URI("https://www.elempleo.com/co/noticias/consejos-profesionales/claves-para-el-manejo-de-crisis-en-las-organizaciones-5608"));
+            d.browse(new URI("https://emprendedoresynegocios.com/manejo-de-crisis-empresarial/"));
+          }
+          if(cons ==2){
+            //Opcion 2: Reestructuracion de negocios
+            System.out.println("\n2.Reestructuracion de negocios");
+            System.out.println("Los siguientes links le serán de mucha ayuda:");
+            d.browse(new URI("https://www.emprendepyme.net/como-reestructurar-una-empresa-de-forma-exitosa.html"));
+            d.browse(new URI("https://www.emprendepyme.net/reestructuracion-empresarial"));
+          }
+          if(cons ==3) {
+            //Opcion 3: Linea antisuicidio
+            System.out.println("\n3.Linea antisuicidio");
+            System.out.println("En caso necesite ayuda, recuerde que siempre hay alguien dispuesto a escucharlo");
+            System.out.println("Linea de apoyo para Guatemala: 2232-6269 o 2238-3739");
+            System.out.println("Direccion:  12 calle A 0-27, zona 1");
+          }
+          if(cons ==4){
+            //Opcion 4: Contacto de ayuda
+            System.out.println("\n4.Contacto de ayuda");
+            System.out.println("Hemos habilitado una pagina para que pueda acudir en caso tenga cualquier duda");
+            d.browse(new URI("https://www.facebook.com/Samaj-2020-107001737815812"));
+          }
+        }
+      }
       else if ( menu == 5 ) {
-       System.out.println( "Usted ha salido del programa." );
-       System.out.println( "Creditos: Alejandro Gomez (Alecraft), Alejandra Guzman (Ale), Paola de León Molina (Pao de 30 milimetros), Marco Jurado El Buki,Andres Osorialias 'avatar'. "); }
+        System.out.println( "Usted ha salido del programa." );
+        System.out.println( "Creditos: Alejandro Gomez, Alejandra Guzman, Paola de León Molina, Marco Jurado,Andres Osorio. ");
+        salir = true;
       }
     }
   }

@@ -2,13 +2,13 @@
 Proyecto Semestral
 Autor: Alejandro Gómez 20347, Marco Jurado 20308, Paola De Leon 20361, Andres Osorio, Alejandra Guzman 20262
 Fecha: 01/09/2020
-Ultima modificacion: 8/09/2020
+Ultima modificacion: 11/09/2020
 					
-Clase que simulará un trabjo temporal en el proyecto semestral:
+Clase que simulará un trabajo temporal en el proyecto semestral:
 Samaj-20
 *****************/
 
-class TrabajoTemp {
+public class TrabajoTemp {
     //Propiedades
     private String Nombre; // Nombre del empleador que publicará el trabajo
     private int Contacto; // Contacto del empleador
@@ -17,9 +17,13 @@ class TrabajoTemp {
     private int Sueldo; // Pago que se ofrecerá por realizar el trabajo
     private static int CantTrabajosTemp = 0; // Variable que almacenará la cantidad de trabajos temporales realizados
 
+    // Constructor general de la clase
+    public TrabajoTemp ( ) {
+      
+    }
+
     // Constructor que creará objetos del Trabajo temporal
-    public TrabajoTemp ( String Nombre, int Contacto, String CategoriaTrabajo,
-    String DescripcionTrabajo, int Sueldo ) {
+    public TrabajoTemp ( String Nombre, int Contacto, String CategoriaTrabajo, String DescripcionTrabajo, int Sueldo ) {
         this.Nombre = Nombre;
         this.Contacto = Contacto;
         this.CategoriaTrabajo = CategoriaTrabajo;
@@ -88,7 +92,7 @@ class TrabajoTemp {
     }
 
   // Método para obtener la información de un trabajo temporal
-  public String toString(TrabajoTemp a ) {
+  public String toString( TrabajoTemp a ) {
     String mensaje = "";
     mensaje += "- Nombre del empleador: " + a.getNombre() + "\n";
     mensaje += "- Contacto del empleador: " + a.getContacto()+ "\n";
@@ -107,5 +111,19 @@ class TrabajoTemp {
 
     return mensaje;
   }
-    
+  
+  public void SubirPerfil(TrabajadorFormal TF){
+  //Tipo Función
+  Documentos.obtenerPerfil(TF);
+  //Se podría probar también ----> Documentos.obtenerPerfil(this.TrabajadorFormal); para obviar el argumento TrabajadorFormal TF.
+}
+
+  public void ModificarPerfil(int seleccion, int cambioN){
+  
+}
+
+  public void ModificarPerfil(int seleccion, String cambioS){
+
+}
+
 }

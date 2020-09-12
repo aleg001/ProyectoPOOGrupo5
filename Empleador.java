@@ -1,8 +1,8 @@
 /*****************
-Proyecto Semenstral
+Proyecto Semestral
 Autor: Alejandro Gómez 20347, Marco Jurado 20308, Paola De Leon 20361, Andres Osorio 20821, Alejandra Guzman 20262
 Fecha: 01/09/2020
-Ultima modificacion: 8/09/2020
+Ultima modificacion: 11/09/2020
 					
 Clase que simulará un empleado en el proyecto semestral:
 Samaj-20
@@ -20,7 +20,7 @@ public class Empleador {
   private boolean Formal = false; // Si el empleador es Empleador de un trabajo formal eel boolean es trues true.
   
   //Constructor para crear un EmpleadorFormal
-  public Empleador( String Nombre, int Contacto, int Codigo, boolean FI ) {
+  public Empleador( String Nombre, int Contacto, int Codigo, boolean FI ){
     this.Nombre = Nombre;
     this.Codigo = Codigo;
     this.Contacto = Contacto;
@@ -39,8 +39,8 @@ public class Empleador {
   public String getNombre () { return Nombre; }
   public int getContacto () { return Contacto; }
   public int getCodigo () { return Codigo; }
-  public ArrayList<TrabajoTemp> getTrabajoInformal () { return TrabajoInformal; 
-  }
+  public ArrayList<TrabajoTemp> getTrabajoInformal() { return TrabajoInformal;}
+  public boolean getFormal(){ return Formal;}
 
   //Setters
   public String setNombre ( String a ) { Nombre = a; return Nombre; }
@@ -48,6 +48,30 @@ public class Empleador {
   public int setCodigo ( int a ) { Codigo = a; return Codigo; }
   public ArrayList<TrabajoTemp> setTrabajoInformal ( ArrayList<TrabajoTemp> a ) { TrabajoInformal = a; return TrabajoInformal; }
 
+  // Método para agregar un trabajo a la lista de trabajos temporales
+  public void AddTrabajoTemp ( Empleador emp, TrabajoTemp a ) {
+    ArrayList<TrabajoTemp> ListaTrabajos = emp.getTrabajoInformal();
+    ListaTrabajos.add ( a );
+  }
+
+  // Método para mostrar la información de un empleador
+  public String infoEmpleador ( Empleador a ) {
+    Boolean IsFormal = a.getFormal ();
+    String mensaje = "";
+
+    if ( IsFormal == true )
+      mensaje +=  "Informacion del empleador formal: ";
+    else {
+      mensaje += "Informacion del empleador informal: ";
+    }
+
+    mensaje += "- Nombre: " + a.getNombre ();
+    mensaje += "- Codigo: " + a.getCodigo ();
+    mensaje += "- Contacto: " + a.getContacto ();
+
+    return mensaje;
+    
+  }
 /* 
 NOTAS PARA ELABORACIÓN DE CODIGO FUENTE 
 //Main
